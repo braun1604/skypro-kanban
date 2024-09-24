@@ -1,17 +1,24 @@
 import { Card } from "../Card/Card";
 
-export function Column({ title }) {
+export function Column({ title, tasks }) {
   return (
     <div className="main__column column">
       <div className="column__title">
         <p>{title}</p>
       </div>
       <div className="cards">
-        <Card title={"Web Design"} color={"_orange"} />
-        <Card title={"Research"} color={"_green"} />
-        <Card title={"Web Design"} color={"_orange"} />
-        <Card title={"Copywriting"} color={"_purple"} />
-        <Card title={"Web Design"} color={"_orange"} />
+        {tasks.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              topic={item.topic}
+              title={item.title}
+              date={item.date}
+              color={item.color}
+              colorText={item.colorText}
+            />
+          );
+        })}
       </div>
     </div>
   );

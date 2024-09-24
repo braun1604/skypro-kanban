@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Header() {
+export function Header({ onAddTask }) {
   const [isOpen, setIsOpen] = useState(false);
   const ToggleDropdown = () => setIsOpen((prevState) => !prevState);
 
@@ -19,8 +19,12 @@ export function Header() {
             </a>
           </div>
           <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew">
-              <a href="#popNewCard">Создать новую задачу</a>
+            <button
+              className="header__btn-main-new _hover01"
+              id="btnMainNew"
+              onClick={onAddTask}
+            >
+              <a>Создать новую задачу</a>
             </button>
             <a
               href="#user-set-target"
