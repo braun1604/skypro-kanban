@@ -1,10 +1,11 @@
-export function Card({ title, color }) {
+export function Card({ title, topic, date, color, colorText }) {
+  console.log(topic);
   return (
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <div className={`card__theme ${color}`}>
-            <p className={color}>{title}</p>
+          <div className={color}>
+            <p className={colorText}>{topic}</p>
           </div>
           <a href="#popBrowse" target="_self">
             <div className="card__btn">
@@ -16,7 +17,7 @@ export function Card({ title, color }) {
         </div>
         <div className="card__content">
           <a href="" target="_blank">
-            <h3 className="card__title">Название задачи</h3>
+            <h3 className="card__title">{title}</h3>
           </a>
           <div className="card__date">
             <svg
@@ -47,7 +48,7 @@ export function Card({ title, color }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>30.10.23</p>
+            <p>{date}</p>
           </div>
         </div>
       </div>
